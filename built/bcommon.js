@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 7);
+/******/ 	return __webpack_require__(__webpack_require__.s = 8);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -301,7 +301,7 @@ var substr = 'ab'.substr(-1) === 'b'
     }
 ;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(6)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(7)))
 
 /***/ }),
 /* 2 */
@@ -399,6 +399,23 @@ module.exports=BString;
 
 /***/ }),
 /* 6 */
+/***/ (function(module, exports) {
+
+var BUtil = {
+    isEmpty : function (str){
+        if (str == undefined || str == null)
+            return true;
+        if (str.constructor === Array){
+            return str.length == 0 ? true : false;
+        }
+        return str.length == 0; // for string
+    }
+}
+
+module.exports = BUtil;
+
+/***/ }),
+/* 7 */
 /***/ (function(module, exports) {
 
 // shim for using process in browser
@@ -588,7 +605,7 @@ process.umask = function() { return 0; };
 
 
 /***/ }),
-/* 7 */
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function($) {var path = __webpack_require__(1);
@@ -597,20 +614,11 @@ var BAction = __webpack_require__(2);
 var BAnimate = __webpack_require__(3);
 var BArray = __webpack_require__(4);
 var BString = __webpack_require__(5);
-var BLib = {
-    isEmpty : function (str){
-        if (str == undefined || str == null)
-            return true;
-        if (str.constructor === Array){
-            return str.length == 0 ? true : false;
-        }
-        return str.length == 0; // for string
-    }
-}
+var BUtil = __webpack_require__(6);
 
-$.extend(BLib, BAction, BAnimate, BArray, BString);
+$.extend(BUtil, BAction, BAnimate, BArray, BString);
 
-window.BLib=BLib;
+window.BLib=BUtil;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ })
