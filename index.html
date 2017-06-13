@@ -1,7 +1,9 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
 <link rel="stylesheet" href="docs/style.css">
+<link rel="stylesheet" href="src/css/b-ui.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?skin=desert" defer=""></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
 <script src="built/bcommon.js"></script>
 
 <body>
@@ -9,7 +11,7 @@
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <a class="navbar-brand" href="#">Navbar</a>
+        <a class="navbar-brand" href="#">Navbar Nhật Minh</a>
         <div class="collapse navbar-collapse" id="navbarsExampleDefault">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
@@ -46,7 +48,7 @@
     <div class="container mt-5">
         <div class="row">
             <div class="col-md-12">
-                <h3>Introduction</h3>
+                <h3>Introduction Viet Nam</h3>
                 <p>This plugin base on jQuery library</p>
                 <p>So we need import jquery before to use it</p>
                 <pre class="prettyprint">
@@ -156,7 +158,7 @@
 
     BLib.objectInArray( itemFind, list, 'code' ); // result = 0
     BLib.objectInArray( itemFind, list, 'name' ); // result = null - not found
-    
+
                     </code>
                 </pre>
             </div>
@@ -190,7 +192,7 @@
 
     BLib.objectInArray( itemFind, list, ['code', 'name'] ); // result = 0
     BLib.objectInArray( itemFind, list, ['name', 'desc', 'code'] ); // result = null - not found
-    
+
                     </code>
                 </pre>
             </div>
@@ -218,15 +220,31 @@
         }
     ];
 
-    BLib.objectInArray( list, code, 13 ); 
+    BLib.objectInArray( list, code, 13 );
     // result = {
     //                code : 13,
     //                name : 'item in list 002'
-    //            }   
+    //            }
     BLib.objectInArray( list, code, 80 ); // result = null - not found
-    
+
                     </code>
                 </pre>
+            </div>
+        </div>
+
+        <div class="row mt-5">
+            <div class="col-md-12">
+                <h4 class="module-title text-danger">UI</h4>
+                <h6 class="text-primary function">alert( message, title = 'Message', type = 'message' )</h6>
+                <p>Quick message or confirm user by using modal Bootstrap 4 without any HTML code</p>
+                <pre class="prettyprint">
+                    <code class="language-javascript">
+    BLib.alert('This is message modal content'); // Message popup will be show
+    BLib.alert('This is confirm modal content','Confirm','confirm'); // Confirm popup will be show
+                    </code>
+                </pre>
+                <button class="btn btn-primary" type="button" id="test-modal-message">@Alert message</button>
+                <button class="btn btn-primary" type="button" id="test-modal-confirm">@Confirm</button>
             </div>
         </div>
 
@@ -237,6 +255,7 @@
                 Coryright 2017 - <a class="text-info" href="http://bigin.vn">Bigin.vn</a>
             </div>
         </div>
+
     </footer>
     <script>
     $(document).ready(function() {
@@ -244,12 +263,22 @@
             BLib.openPopupWindow("https://github.com", "Github testing window popup", 500, 300);
         });
 
+        $('#test-modal-message').on('click', function() {
+            BLib.alert('This is message modal content');
+        });
+
+        $('#test-modal-confirm').on('click', function() {
+            BLib.alert('This is confirm modal content','Confirm','confirm');// Confirm popup will be show
+        });
+
+        BLib.message("Hello this 01");
+        BLib.message("Hello this 02");
+        BLib.message("Hello this 03");
         console.log("- currencyFormat -");
         var number = 12000;
         console.log(BLib.currencyFormat(number)); // result => 12,000 USD
         console.log(BLib.currencyFormat(number, 'VND')) // result => 12,000 VND
         console.log(BLib.currencyFormat(number, 'SGD', '.')) // result => 12.000 SGD
-
 
     });
     </script>
