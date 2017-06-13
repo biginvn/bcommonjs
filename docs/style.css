@@ -1,4 +1,20 @@
+
+*{
+	outline: none!important;
+}
+.btn {
+	box-shadow: none!important;
+}
+
 .header {
     padding: 80px 0 50px 0;
     color: #fff;
+}
+.module-title {
+    border-bottom: 1px solid #cecece;
+    padding-bottom: 10px;
+    font-size: 22px;
+}
+.function {
+    font-style: italic;
 }

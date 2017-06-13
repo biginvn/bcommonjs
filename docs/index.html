@@ -47,61 +47,96 @@
             </div>
         </div>
     </div>
-
     <div class="container mt-5">
-    	<div class="row">
-    		<div class="col-md-12">
-    			<h3>Intruduction</h3>
-    			<p>This plugin base on jQuery library</p>
-    			<p>So we need import jquery before to use it</p>
-    			<pre class="prettyprint">
-	<code class="language-html">
-	&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js">&lt;/script>
-	&lt;script src="built/bcommon.js">&lt;/script>
-	</code>
-    			</pre>
-    		</div>
-    	</div>
-    	<div class="row">
-    		<div class="col-md-12">
-    			<h6 class="text-primary">Currency formatting</h6>
-    			<p>Format number to currency</p>
-    			<pre class="prettyprint">
-    			<code class="language-javascript">
-	var number=12000;
-	Blib.currencyFormat(number,'USD') // result => 12,000 USD
-				</code>
-    			</pre>
-    		</div>
-    	</div>
+        <div class="row">
+            <div class="col-md-12">
+                <h3>Intruduction</h3>
+                <p>This plugin base on jQuery library</p>
+                <p>So we need import jquery before to use it</p>
+                <pre class="prettyprint">
+    <code class="language-html">
+    &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js">&lt;/script>
+    &lt;script src="built/bcommon.js">&lt;/script>
+    </code>
+                </pre>
+            </div>
+        </div>
+        <div class="row mt-5">
+            <div class="col-md-12">
+                <h4 class="module-title text-danger">Util</h4>
+                <h6 class="text-primary function">currencyFormat( number, name = 'USD', separator = ',' )</h6>
+                <p>Format number to currency</p>
+                <pre class="prettyprint">
+                <code class="language-javascript">
+    var number=12000;
+    BLib.currencyFormat(number) // result => 12,000 USD
 
-    	<div class="row">
-    		<div class="col-md-12">
-    			<h6 class="text-primary">Check empty object/array/string/number</h6>
-    			<p>Check variable empty, it will return true if :</p>
-    			<ol>
-    				<li>variable == null</li>
-    				<li>array length equals 0</li>
-    				<li>string empty (length == 0)</li>
-    			</ol>
-    			<pre class="prettyprint">
-    				<code class="language-javascript">
-	var array=[];
-	Blib.isEmpty(array) // result => true;
+    BLib.currencyFormat(number, 'VND') // result => 12,000 VND
 
-	var str='';
-	Blib.isEmpty(str) // result => true;
+    BLib.currencyFormat(number, 'SGD', '.') // result => 12.000 SGD
+                </code>
+                </pre>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-md-12">
+                <h6 class="text-primary function">isEmpty( variable )</h6>
+                <p>Check variable empty, it will return true if :</p>
+                <ol>
+                    <li>variable = null || undefined</li>
+                    <li>array length = 0</li>
+                    <li>string length = 0</li>
+                    <li>number = 0</li>
+                </ol>
+                <pre class="prettyprint">
+                    <code class="language-javascript">
+    var array=[];
+    BLib.isEmpty(array) // result => true;
 
-	var obj = null;
-	Blib.isEmpty(obj) // result => true;
-					</code>
-    			</pre>
-    		</div>
-    	</div>
+    var str='';
+    BLib.isEmpty(str) // result => true;
+
+    var obj = null;
+    BLib.isEmpty(obj) // result => true;
+                    </code>
+                </pre>
+            </div>
+        </div>
+        <div class="row mt-5">
+            <div class="col-md-12">
+                <h4 class="module-title text-danger">Action</h4>
+                <h6 class="text-primary function">openPopupWindow( link,title, width, height )</h6>
+                <p>Open new window popup auto center screen</p>
+                <pre class="prettyprint">
+                    <code class="language-javascript">
+    BLib.openPopupWindow( "https://github.com", "Github testing window popup", 300, 300 );
+    // This will open new child window base on current window
+                    </code>
+                </pre>
+                <button class="btn btn-primary" type="button" id="test-popup">Open new popup</button>
+            </div>
+        </div>
     </div>
+    <footer class="container-fluid bg-inverse mt-5">
+        <div class="row">
+            <div class="col-md-12 text-center pt-2 pb-2 text-white">
+                Coryright 2017 - <a class="text-info" href="http://bigin.vn">Bigin.vn</a>
+            </div>
+        </div>
+    </footer>
     <script>
-    	var currency = 10000;
-    	console.log(BLib.currencyFormat(currency,'USD'));
+    $(document).ready(function() {
+        $('#test-popup').on('click', function() {
+            BLib.openPopupWindow("https://github.com", "Github testing window popup", 500, 300);
+        });
+
+        console.log("- currencyFormat -");
+        var number = 12000;
+        console.log(BLib.currencyFormat(number)); // result => 12,000 USD
+        console.log(BLib.currencyFormat(number, 'VND')) // result => 12,000 VND
+        console.log(BLib.currencyFormat(number, 'SGD', '.')) // result => 12.000 SGD
+
+
+    });
     </script>
 </body>
-

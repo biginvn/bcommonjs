@@ -1,5 +1,3 @@
-var path = require("path");
-
 var BAction = require('./modules/action');
 var BAnimate = require('./modules/animate');
 var BArray = require('./modules/array');
