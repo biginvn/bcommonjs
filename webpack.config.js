@@ -4,7 +4,9 @@ var path = require("path");
 module.exports = {
 	entry: path.join(__dirname, './src/main'),
 	output: {
-		filename: './built/bcommon.js'
+		filename: './built/bcommon.js',
+		chunkFilename: 'bcommon.js',
+    	publicPath: './docs/js'
 	},
 	module: {},
 	externals: {
