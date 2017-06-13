@@ -116,6 +116,124 @@
                 <button class="btn btn-primary" type="button" id="test-popup">Open new popup</button>
             </div>
         </div>
+
+        <div class="row mt-5">
+            <div class="col-md-12">
+                <h4 class="module-title text-danger">Animation</h4>
+                <h6 class="text-primary function">scrollToElement( element, delay = 1000 )</h6>
+                <p>Scroll screen to element</p>
+                <pre class="prettyprint">
+                    <code class="language-javascript">
+    BLib.scrollToElement( '#scroll' );// Scroll viewport to div#scroll
+    BLib.scrollToElement( '#scroll', 2000 );// Scroll viewport to div#scroll in 2 seconds
+                    </code>
+                </pre>
+            </div>
+        </div>
+
+        <div class="row mt-5">
+            <div class="col-md-12">
+                <h4 class="module-title text-danger">Array</h4>
+                <h6 class="text-primary function">objectInArray (item, array, key) </h6>
+                <p>Return index of item if item.key equals any item of array have the same key => value</p>
+                <pre class="prettyprint">
+                    <code class="language-javascript">
+    var itemFind = {
+        code : 10,
+        name : 'item 001'
+    };
+    var list = [
+        {
+            code : 10,
+            desc : 'the first description',
+            name : 'item in list 001'
+        },
+        {
+            code : 13,
+            name : 'item in list 002'
+        },
+        {
+            code : 15,
+            name : 'item in list 003'
+        }
+    ];
+
+    BLib.objectInArray( itemFind, list, 'code' ); // result = 0
+    BLib.objectInArray( itemFind, list, 'name' ); // result = null - not found
+    
+                    </code>
+                </pre>
+            </div>
+        </div>
+
+        <div class="row mt-3">
+            <div class="col-md-12">
+                <h6 class="text-primary function">inArrayMultiKey (item, array, keys) </h6>
+                <p>Return index of item if item.key1 , item.key2 ... equals any item of array have the same key => value</p>
+                <pre class="prettyprint">
+                    <code class="language-javascript">
+    var itemFind = {
+        code : 10,
+        name : 'item 001'
+    };
+    var list = [
+        {
+            code : 10,
+            desc : 'the first description',
+            name : 'item 001'
+        },
+        {
+            code : 13,
+            name : 'item in list 002'
+        },
+        {
+            code : 15,
+            name : 'item in list 003'
+        }
+    ];
+
+    BLib.objectInArray( itemFind, list, ['code', 'name'] ); // result = 0
+    BLib.objectInArray( itemFind, list, ['name', 'desc', 'code'] ); // result = null - not found
+    
+                    </code>
+                </pre>
+            </div>
+        </div>
+
+        <div class="row mt-3">
+            <div class="col-md-12">
+                <h6 class="text-primary function">getObjectItemInArray (list, key, value) </h6>
+                <p>Return object item of array (list) if it's match key <=> value</p>
+                <pre class="prettyprint">
+                    <code class="language-javascript">
+    var list = [
+        {
+            code : 10,
+            desc : 'the first description',
+            name : 'item 001'
+        },
+        {
+            code : 13,
+            name : 'item in list 002'
+        },
+        {
+            code : 15,
+            name : 'item in list 003'
+        }
+    ];
+
+    BLib.objectInArray( list, code, 13 ); 
+    // result = {
+    //                code : 13,
+    //                name : 'item in list 002'
+    //            }   
+    BLib.objectInArray( list, code, 80 ); // result = null - not found
+    
+                    </code>
+                </pre>
+            </div>
+        </div>
+
     </div>
     <footer class="container-fluid bg-inverse mt-5">
         <div class="row">

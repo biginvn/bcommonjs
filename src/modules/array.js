@@ -1,6 +1,6 @@
 var BArray = {
-	inArray: function(item, array, key) {
-		// var a = { 'code' : 9 , 'name' : 'YDUZ' } || var b = [ { 'code' : 9 , 'name' : 'YDUZ' }, { 'code' : 10 , 'name' : 'YDUZXSD' } ]
+	objectInArray: function(item, array, key) {
+		// var a = { 'code' : 9 , 'name' : 'name 1' } || var b = [ { 'code' : 9 , 'name' : 'name 2' }, { 'code' : 10 , 'name' : 'YDUZXSD' } ]
 		// => inArray ( a , b , 'code' ) = true , inArray ( a , b , 'name' ) = false
 
 		for (var i = 0; i < array.length; i++) {
@@ -27,6 +27,16 @@ var BArray = {
 
 			if (totalEqual == keys.length)
 				return i;
+		}
+		return null;
+	},
+	getObjectItemInArray: function(list, key, value) { 
+	// Get object item in array , define by key of item (example get item by id )
+		for (var i = 0; i < list.length; i++) {
+			if (list[i][key] == value) {
+				var result = list[i];
+				return result;
+			}
 		}
 		return null;
 	}
